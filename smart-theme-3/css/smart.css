@@ -1,0 +1,556 @@
+/*
+Theme Name: Smart Tutorials
+Theme URI: https://smarttutorials.co.uk
+Description: custom theme for Smart Tutorials website
+Version: 1.0
+Author: Claire Parker
+Author URI: https://smarttutorials.co.uk
+Tags: black, white, blue, responsive, grid, one-column, two-column, featured-video, custom-menu, custom-header, post-formats
+*/
+
+/*--------------------------------------------------------------
+CSS reset
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+Additions have been made for the purpose of this project
+--------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust:     100%;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+li {
+    display: inline;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+	border: 0;
+	width: 100%;
+    height: auto;
+}
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+    color: #404040;
+	font-family: 'Poppins', Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Oswald', Tahoma, Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 1em 0;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p {
+	margin: 0;
+	padding: 1em 0;
+    font-weight: 300;
+}
+
+span {
+    text-transform: uppercase;
+}
+
+/* links */
+
+a:link, a:visited {
+    color: #404040;
+    text-decoration: none;
+    padding: 1em;
+}
+
+a:hover, a:active, a:focus {
+    color: #fff;
+    background-color: #2185C5;
+    text-decoration: none;
+    padding: 1em;
+}
+
+/* header styles */
+
+header {
+    display: grid;
+    grid-column: 1/5;
+}
+
+.category,
+.site-title {
+    grid-column: 1/5;
+}
+
+/* primary navigation #menu */
+
+nav ul {
+    text-align:center;
+}
+
+nav ul li {
+    display:inline-block;
+}
+
+nav ul > li a {
+    display:block;
+    letter-spacing:1px;
+    padding:0px 30px;
+    padding-bottom:15px;
+    color:#000;
+    font-weight:bold;
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+nav ul.depth_0 {
+    position:absolute;
+    text-align:center;
+    padding:0px;
+    padding-top:20px;
+    left:0px;
+    width:100%;
+    background:#f5f4f4;
+    display:none;
+    z-index:300; 
+}
+
+nav ul.depth_0 > li  {
+    text-align:left;
+    display:inline-block;
+    text-transform:uppercase;
+    vertical-align:top;
+    font-weight:normal;
+    font-size:13px;
+}
+
+nav ul.depth_0 > li a  {
+    font-weight:normal;
+    padding:0px;
+}
+
+nav ul.depth_1 > li a  {
+    font-weight:normal;
+    font-size:12px;
+}
+
+nav ul > li:hover ul.depth_0 {
+    display:inline-block;
+}
+
+nav ul.depth_1 {
+    text-align:left;
+    width:140px;
+    padding:20px 30px 40px 0px;
+}
+
+nav ul.depth_1 li {
+    display:block;
+    font-size:12px;
+}
+
+nav ul.depth_1 li a {
+    padding:0px;
+    padding-bottom:5px;
+    text-transform:none;
+}
+
+nav ul.depth_1 li a:hover {
+    padding-left:15px;
+    text-decoration:none;
+}
+
+nav ul > li a:hover {
+    text-decoration:underline;
+    color:#581311;
+}
+
+/* wrapper styles */
+
+/*.wrapper {
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.2);
+    margin: 30px;
+    position: relative;
+}*/
+
+/* Promo section */
+
+.site-title {
+    font-size: 2em;
+    margin: 0 0 0 0.7em;
+}
+
+/* media */
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Scenario section */
+
+main > p {
+    margin: 0 0 1em 1.5em;
+}
+
+/* steps section */
+
+.steps {
+	background: #FFF;
+	padding-bottom: 2em;
+}
+
+.steps-content {
+    list-style: square;
+	padding: 1.5em;
+}
+
+.steps-content h2 {
+    text-align: left;
+}
+
+.steps-content ul {
+    list-style: square;
+    font-weight: 300;
+    margin-left: 1em;
+}
+
+.steps-content li {
+    list-style-type: square;
+    padding-bottom: 1em;
+}
+
+.os {
+    color: #404040;
+    font-weight: 400;
+    background: #2185C5;
+    color: #fff;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+}
+
+/* More section */
+
+.more {
+	padding: 2em;
+    margin: 0 1.5em;
+    border-top: dotted 1px #2185C5;
+}
+
+.more li {
+    display: inline-block;
+}
+
+/* Buckets section */
+
+.triplets {
+	padding: 2em 1em 1em;
+	background: #3E454C;
+}
+
+.triplets h2 {
+    color: #fff;
+}
+
+.triplets ul {
+	margin: 0;
+	padding: 0;
+}
+
+.triplets li {
+	margin-bottom: 1em;
+	background: #fff;
+	list-style-type: none;
+}
+
+.triplet {
+	padding: 1.5em;
+}
+
+/* share tutorial buttons */
+
+.share-btn {
+    display: inline-block;
+    color: #fff;
+    padding: 1em;
+    width: 4em;
+}
+
+.share-btn:hover,
+.share-btn:focus {
+    color: #404040;
+}
+
+.share-btn:active {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+    color: #e2e2e2;
+    outline: none;
+}
+
+.share-btn.twitter { background: #55acee; }
+.share-btn.facebook { background: #3B5998; }
+.share-btn.linkedin    { background: #4875B4; }
+.share-btn.email { background: #3E454C; }
+.share-btn.whatsapp {background: #25D366;}
+
+.btn {
+    margin: 0 auto;
+    width: 50%;
+}
+
+/* Twins section */
+
+.twin {
+	padding: 2em;
+    background: #25D366;
+	color: #202020;
+}
+
+.twin:last-of-type {
+	/*background: #ee6492;*/
+    background: #2185C5;
+    color: #fff;
+}
+
+/* footer */
+
+.sidebar {
+    display: grid;
+    grid-column: 1;
+}
+
+/* footer */
+
+footer {
+    display: grid;
+	padding: 1em;
+	background: #1a1a1a;
+	color: white;
+}
+
+footer a:hover,
+footer a:focus {
+    opacity: 0.5;
+    background: #1a1a1a;
+}
+
+.social {
+    grid-column: 1/4;
+}
+
+.social a {
+    display: inline-block;
+    padding: 0 0.5em 0 0;
+}
+
+.icon {
+    width: 2.5em;
+    height: auto;
+}
+
+
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align
+--------------------------------------------------------------*/
+@supports not (display: grid) {
+	.grid {
+		max-width: 50em;
+		margin: 0 auto;
+	}
+}
+
+/*--------------------------------------------------------------
+Change wrapper size for mobile and tablet
+--------------------------------------------------------------*/
+
+/*@media (max-width: 575px) {
+.wrapper {
+    margin: 10px;
+}
+}
+
+@media (max-width: 767px) {
+.wrapper {
+    margin: 20px;
+}
+}*/
+
+/*--------------------------------------------------------------
+Change layout of main navigation (.menu) for smaller screens
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 600px) {
+
+    #menu {
+        grid-column: 1/5;
+        background: #2185c5;
+        padding: 0;
+        margin: 0;
+    }
+
+    #menu li,
+    #menu a {
+        display: block;
+        text-align: center;
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
+
+    #dropdown-menu.depth_0 a {
+        color: #404040;
+        background: #fff;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1060px) {
+
+    #menu {
+        grid-column: 2/5;
+    }
+
+    #menu li,
+    #menu a {
+        display: inline-flex;
+        padding: 0.2em;
+    }
+}
+
+/*--------------------------------------------------------------
+Use flex to create a three-across layout for triplets
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 700px) {
+	@supports (display: flex) {
+
+		.triplets ul {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.triplets li {
+			width: 31%;
+		}
+
+	}
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for wider screens, when browser supports grid:
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 600px) {
+	/* Layout with CSS Grid */
+	@supports (display: grid) {
+
+		/* Four-column layout. Two center columns have a total max width of 50em: */
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+		}
+
+        /* Allow content in steps section to span all columns: */
+        .steps-content {
+            grid-column: 1/5;
+        }
+
+		/* Center items by placing them in the two center columns: */
+		.more-content,
+		.triplets ul {
+			grid-column: 2/4;
+		}
+
+		/* Use automatic grid placement + span to let each item span two columns:*/
+		.twin {
+			grid-column: span 2;
+		}
+
+	}
+}
